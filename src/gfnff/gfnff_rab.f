@@ -124,8 +124,8 @@ c     global EN polynominal parameters x 10^3
       p(6,2)=    -1.30000000
 
 
-      do k=1,nsrb
-         i=srblist(1,k)
+      do k=1,nsrb !pares
+         i=srblist(1,k) !lista de pares
          j=srblist(2,k)
          ati=at(i)
          atj=at(j)
@@ -139,6 +139,8 @@ c--------
          k2=0.005d0*(p(ir,2)+p(jr,2))
          ff=1.0d0-k1*den-k2*den**2
          rab(k) =(ra+rb+rab(k))*ff
+         !Nick
+         write(9876,*) "rab",k,i,j,rab(k)
          do m=1,n
             grab(1:3,m,k)=ff*(cnfak(ati)*dcn(1:3,m,i)
      .                       +cnfak(atj)*dcn(1:3,m,j))

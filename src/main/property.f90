@@ -140,11 +140,11 @@ subroutine main_property &
 
 !! Mulliken and CM5 charges
    if (pr_mulliken.and.gfn_method.eq.1) then
-      call open_file(ifile,'charges','w')
+      call open_file(ifile,'charges_Nick','w')
       call print_mulliken(iunit,ifile,mol%n,mol%at,mol%xyz,mol%z,basis%nao,S,wfx%P,basis%aoat2,basis%lao2)
       call close_file(ifile)
    else if (pr_charges) then
-      call open_file(ifile,'charges','w')
+      call open_file(ifile,'charges_Nick2','w')
       call print_charges(ifile,mol%n,wfx%q)
       call close_file(ifile)
    endif

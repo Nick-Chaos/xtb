@@ -108,6 +108,7 @@ contains
       integer,allocatable :: d3list(:,:)
       type(tb_timer) :: timer
       real(wp) :: dispthr, cnthr, repthr, hbthr1, hbthr2
+           integer  :: ifile
 
       call gfnff_thresholds(accuracy, dispthr, cnthr, repthr, hbthr1, hbthr2)
 
@@ -540,6 +541,16 @@ contains
       etot = ees + edisp + erep + ebond &
      &           + eangl + etors + ehb + exb + ebatm + eext &
      &           + gsolv
+
+!!!!!!!!!!!!!!!!!!
+! Nick Test - writing charges
+!!!!!!!!!!!!!!!!!!
+      call open_file(ifile,'charges_eeq','w')
+      do i = 1, n
+         write(ifile,'(f14.8)') topo%q(i)
+      enddo
+      call close_file(ifile)
+
 
 !!!!!!!!!!!!!!!!!!
 ! printout
