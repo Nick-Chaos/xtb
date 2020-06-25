@@ -124,8 +124,8 @@ c     global EN polynominal parameters x 10^3
       p(6,2)=    -1.30000000
 
 
-      do k=1,nsrb !pares
-         i=srblist(1,k) !lista de pares
+      do k=1,nsrb
+         i=srblist(1,k)
          j=srblist(2,k)
          ati=at(i)
          atj=at(j)
