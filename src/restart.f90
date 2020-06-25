@@ -162,6 +162,8 @@ subroutine writeRestart(env,wfx,fname,gfn_method)
       int(wfx%n,i8),int(wfx%nshell,i8), &
       int(wfx%nel,i8),int(wfx%nopen,i8)
    write(ich) wfx%qsh
+
+
    if (gfn_method.gt.1) then
       write(ich) wfx%dipm
       write(ich) wfx%qp
@@ -197,6 +199,7 @@ subroutine write_restart_gff(env,fname,nat,version,topo)
    write(ich) topo%vbond,topo%vangl,topo%vtors,topo%chieeq,topo%gameeq,topo%alpeeq,topo%alphanb,topo%qa,topo%q,       &
       & topo%xyze0,topo%zetac6,topo%qfrag,topo%hbbas,topo%hbaci
    call close_file(ich)
+
 end subroutine write_restart_gff
 
 

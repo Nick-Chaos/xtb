@@ -139,8 +139,7 @@ c--------
          k2=0.005d0*(p(ir,2)+p(jr,2))
          ff=1.0d0-k1*den-k2*den**2
          rab(k) =(ra+rb+rab(k))*ff
-         !Nick
-         write(9876,*) "rab",k,i,j,rab(k)
+
          do m=1,n
             grab(1:3,m,k)=ff*(cnfak(ati)*dcn(1:3,m,i)
      .                       +cnfak(atj)*dcn(1:3,m,j))

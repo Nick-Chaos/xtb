@@ -1017,6 +1017,12 @@ subroutine gfnff_ini(env,pr,makeneighbor,mol,ichrg,gen,param,topo,accuracy)
       write(env%unit,*) 'bond atoms        type  in ring    R      R0    piBO    fqq  kbond(tot)  alp'
       endif
 
+!!!!!!!!!!! Write bonds for Orca, Nick
+      open(unit=7777, file='Orca_eq_bonds')
+      write(7777,'(a6)') '$bonds'
+      write(7777,'(i7,1x,i1,1x,i1)') topo%nbond,2,2
+!!!!!!!!!!!
+
       do i=1,topo%nbond
          ii=topo%blist(1,i)
          jj=topo%blist(2,i)
@@ -1222,13 +1228,25 @@ subroutine gfnff_ini(env,pr,makeneighbor,mol,ichrg,gen,param,topo,accuracy)
          r0 = (rtmp(ij)+topo%vbond(1,i))*0.529167
          if(pr) write(env%unit,'(2a3,2i5,2x,2i5,2x,6f8.3)') &
      &   mol%sym(ii),mol%sym(jj),ii,jj,bbtyp,rings,0.529167*rab(ij),r0,pibo(i),fqq,topo%vbond(3,i),topo%vbond(2,i)
+
+
+!!!!!!!!!!!write bonds for Orca FF, Nick
+        write(7777,'(i6,5x,i6,3x,f8.6,a11)') ii,jj, 0.529167*rab(ij),'500.000000'
+!!!!!!!!!!!
       enddo
 
-!!!!!!!!!!!!
-! Nick     !
-!!!!!!!!!!!!
 
-        write(6588,*) topo%vbond
+      close(7777)
+
+!!!!!!!!!!!write Charges for Orca FF, Nick
+      open(unit=7777, file='charges_eeq')
+      do i=1,mol%n
+        write(7777,'(f14.8)') topo%qa(i)
+      end do
+      close(7777)
+!!!!!!!!!!!
+
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !     scale FC if bond is part of hydrogen bridge

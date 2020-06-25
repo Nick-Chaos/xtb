@@ -542,15 +542,6 @@ contains
      &           + eangl + etors + ehb + exb + ebatm + eext &
      &           + gsolv
 
-!!!!!!!!!!!!!!!!!!
-! Nick Test - writing charges
-!!!!!!!!!!!!!!!!!!
-      call open_file(ifile,'charges_eeq','w')
-      do i = 1, n
-         write(ifile,'(f14.8)') topo%q(i)
-      enddo
-      call close_file(ifile)
-
 
 !!!!!!!!!!!!!!!!!!
 ! printout
