@@ -108,7 +108,6 @@ contains
       integer,allocatable :: d3list(:,:)
       type(tb_timer) :: timer
       real(wp) :: dispthr, cnthr, repthr, hbthr1, hbthr2
-           integer  :: ifile
 
       call gfnff_thresholds(accuracy, dispthr, cnthr, repthr, hbthr1, hbthr2)
 
