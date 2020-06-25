@@ -162,8 +162,6 @@ subroutine writeRestart(env,wfx,fname,gfn_method)
       int(wfx%n,i8),int(wfx%nshell,i8), &
       int(wfx%nel,i8),int(wfx%nopen,i8)
    write(ich) wfx%qsh
-
-
    if (gfn_method.gt.1) then
       write(ich) wfx%dipm
       write(ich) wfx%qp
