@@ -541,7 +541,6 @@ contains
      &           + eangl + etors + ehb + exb + ebatm + eext &
      &           + gsolv
 
-
 !!!!!!!!!!!!!!!!!!
 ! printout
 !!!!!!!!!!!!!!!!!!
