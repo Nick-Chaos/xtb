@@ -197,7 +197,6 @@ subroutine write_restart_gff(env,fname,nat,version,topo)
    write(ich) topo%vbond,topo%vangl,topo%vtors,topo%chieeq,topo%gameeq,topo%alpeeq,topo%alphanb,topo%qa,topo%q,       &
       & topo%xyze0,topo%zetac6,topo%qfrag,topo%hbbas,topo%hbaci
    call close_file(ich)
-
 end subroutine write_restart_gff
 
 
